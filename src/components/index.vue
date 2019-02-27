@@ -4,7 +4,9 @@
         <ul>
           <li v-for="item in lists">
             <i v-bind:title="[item.desc]" v-bind:class="['fa',item.icon?item.icon:'fa-star-o']" ></i>{{item.title}}：
-            <a v-for="i in item.link" href="javascript:void(0);" v-on:click="writeInputFunc(i)">{{i}}</a>
+              <template v-for="(i,key) in item.link" >
+                {{key>0?' | ':''}}<a href="javascript:void(0);" v-on:click="writeInputFunc(i)" >{{i.trim()}}</a>
+              </template>
           </li>
         </ul>
       </div>
