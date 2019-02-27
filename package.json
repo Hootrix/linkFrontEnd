@@ -1,8 +1,8 @@
 {
   "name": "link",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "HPPang <hhtjim19042>",
+  "description": "利用网盘或者音乐网站的地址获取音乐文件直链 用于外链播放 | 外链转换工具 来自HHTJim's部落格的web app",
+  "author": "Panc",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
