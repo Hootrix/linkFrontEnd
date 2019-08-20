@@ -6,9 +6,12 @@
               onclick="Link.openWindow($(this).prevAll('input').val(),'Music',960,300)" class="input-group-btn">
             <button type="button" class="btn btn-default">试听</button>
         </span>
-        <span class="input-group-btn">
-            <button v-bind:class="['copy btn',index<localLoadNum?'btn-success':'']">No.{{index | position(localResult.length)}}</button>
-        </span>
+        
+      <span v-if="index<localLoadNum" class="input-group-btn">
+          <button  class="btn btn-success">No.{{index | position(localResult.length)}}</button>
+      </span>
+      <span v-else v-bind:class="['copy btn','input-group-addon']">No.{{index | position(localResult.length)}}</span>  
+         
     </div>
     </div>
 </template>
@@ -62,5 +65,5 @@ export default{
 }
 </script>
 <style scoped>
-    .input-group{margin-top: 10px;}
+    /* .input-group{margin-top: 10px;} */
 </style>
