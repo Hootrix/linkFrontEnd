@@ -3,7 +3,6 @@
     <pre class="btn-info"><h1 v-bind:title="[title]">外链转换工具 | HHTJim.Com Web App {{version}}</h1></pre>
     <router-view v-on:appTitleUpdate="appTitleUpdateFunc"></router-view>
   </div>
-  <div style="display:none"><script src="//s14.cnzz.com/stat.php?id=2855283&web_id=2855283" language="JavaScript"></script></div>
 </template>
 
 <script>

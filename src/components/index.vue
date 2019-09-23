@@ -21,11 +21,9 @@
       </div>
 
     <input-url ref="input-url-el" v-bind:inputTitle="[versionInfo['APP_INPUT_CONTENT_TITLE']]" v-bind:isLoading="[isLoading]"  v-bind:url="[inputUrl]" v-on:submitInputUrl="submit" ></input-url>
-  <component v-if="showStatusBar" v-bind:is="currentStatusBarView"  v-bind:total="result.length"  v-bind:loadCount="insertCount" v-on:clearList="clear"  keep-alive></component>
-  <result-list v-bind:loadNum="insertCount"  v-bind:result="result"></result-list>
-  
-  </div>
-
+    <component v-if="showStatusBar" v-bind:is="currentStatusBarView"  v-bind:total="result.length"  v-bind:loadCount="insertCount" v-on:clearList="clear"  keep-alive></component>
+    <result-list v-bind:loadNum="insertCount"  v-bind:result="result"></result-list>
+    </div>
 </template>
 
 <script>
