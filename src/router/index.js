@@ -5,7 +5,7 @@ import index from '@/components/index.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  mode: 'history', // 去除url中的 /#
   routes: [
     {
       path: '*',
