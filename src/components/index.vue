@@ -36,8 +36,9 @@ export default {
   name: 'INDEX',
   data: function () {
     return {
+      oldVersion: 0, // 之前请求的旧版本号
       inputUrl: '', //  默认输入框的值
-      lists: [],
+      lists: JSON.parse(window.localStorage['url_list'] ? window.localStorage['url_list'] : '[]'),
       versionInfo: [],
       showStatusBar: false,
       currentStatusBarView: 'status-show-total',
@@ -48,7 +49,6 @@ export default {
     }
   },
   mounted: function () {
-    this.getList()
     this.getVersion()
   },
   components: {
@@ -81,6 +81,9 @@ export default {
 
 //  全局回车按键监听 提交操作
   created: function () {
+    if (window.localStorage['version']) {
+      this.oldVersion = window.localStorage['version']
+    }
     const $this = this
     document.addEventListener('keyup', function (ev) {
       if (ev.keyCode === 13) {
@@ -107,6 +110,12 @@ export default {
         } else {
           this.currentStatusBarView = 'status-show-total'
         }
+      }
+    },
+    versionInfo: function (n, o) {
+      if (this.oldVersion === 0 || parseFloat(n.APP_VERSION) > this.oldVersion) {
+        // 如果版本号不存在或者不是最新版本则获取url列表
+        this.getList()
       }
     }
   }
