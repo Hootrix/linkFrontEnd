@@ -123,8 +123,4 @@ export default {
     transition-timing-function: cubic-bezier(0.195, 1.65, 0.435, -0.6);
   } */
 
-  .ads1 { display:block;margin:auto;width: 720px; height: 90px; }
-  @media (max-width: 400px) { .ads1 { display: none; } }
-  @media (min-width:500px) { .ads1 { width: 468px; height: 60px; } }
-  @media (min-width:800px) { .ads1 { width: 728px; height: 90px; } }
 </style>

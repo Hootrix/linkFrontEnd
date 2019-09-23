@@ -40,4 +40,9 @@ export default {
   box-shadow: 0 1px 2px rgba(0, 0, 0, .05)
 }
 
+/* google adsense */
+.ads1 { display:block;margin:auto;width: 720px; height: 90px; }
+  @media (max-width: 400px) { .ads1 { display: none; } }
+  @media (min-width:500px) { .ads1 { width: 468px; height: 60px; } }
+  @media (min-width:800px) { .ads1 { width: 728px; height: 90px; } }
 </style>
