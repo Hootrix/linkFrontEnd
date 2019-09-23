@@ -4,7 +4,7 @@
  */
 export default {
   install: function (Vue, options) {
-    const SERVERHOST = 'http://link' //  请求服务器的地址 document.location.origin
+    const SERVERHOST = 'https://link.hhtjim.com' //  请求服务器的地址 document.location.origin
 
     //  全局真实提交url的操作
     Vue.prototype.submitAction = async function (urlData) {
