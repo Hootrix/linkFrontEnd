@@ -1,23 +1,51 @@
 <template>
-    <div>
-    <div v-for="(item,index) in localResult"  class="input-group">
-        <input class="form-control" type="text" onmouseover="this.select()" v-model="localResult[index]">
-        <span title="测试外链播放" style="overflow: hidden; display: none;"
-              onclick="Link.openWindow($(this).prevAll('input').val(),'Music',960,300)" class="input-group-btn">
-            <button type="button" class="btn btn-default">试听</button>
-        </span>
-        
-      <span v-if="index<localLoadNum" class="input-group-btn">
-          <button  class="btn btn-success">No.{{index | position(localResult.length)}}</button>
+  <div>
+    <div
+      v-for="(item,index) in localResult"
+      class="input-group"
+    >
+      <input
+        class="form-control"
+        type="text"
+        onmouseover="this.select()"
+        v-model="localResult[index]"
+        v-bind:id="['index-'+index]"
+      >
+      <!-- <span
+        title="测试外链播放"
+        style="overflow: hidden; display: none;"
+        onclick="Link.openWindow($(this).prevAll('input').val(),'Music',960,300)"
+        class="input-group-btn"
+      >
+        <button
+          type="button"
+          class="btn btn-default"
+        >试听</button>
+      </span> -->
+
+      <span
+        v-if="index<localLoadNum"
+        class="input-group-btn"
+      >
+        <button
+          class="n-text btn btn-success"
+          v-on:click="copy(index)"
+          v-bind:id="['n-text-'+index]"
+        >No.{{index | position(localResult.length)}}</button>
       </span>
-      <span v-else v-bind:class="['copy btn','input-group-addon']">No.{{index | position(localResult.length)}}</span>  
-         
+      <span
+        v-else
+        v-bind:class="['copy btn','input-group-addon']"
+        v-on:click="copy(index)"
+        v-bind:id="['n-text-'+index]"
+      >No.{{index | position(localResult.length)}}</span>
+
     </div>
-    </div>
+  </div>
 </template>
 <script>
-import Clipboard from 'clipboard'
-export default{
+
+export default {
   name: 'result-list',
   props: {
     result: {
@@ -34,18 +62,7 @@ export default{
     }
   },
   mounted: function () {
-    const clipboard = new Clipboard('.copy', {
-      text: function (trigger) {
-        return trigger.parentNode.parentNode.firstChild.value
-      }
-    })//  复制粘贴 js初始化
-    clipboard.on('success', function (e) {
-//      console.info('Action:', e.action)
-//      console.info('Text:', e.text)
-//      console.info('Trigger:', e.trigger)
-      e.trigger.innerText = e.trigger.innerText.toUpperCase()//  拷贝成功 修改为大写No
-    })
-    console.log('复制功能：' + clipboard)
+
   },
   watch: {
     result: function (n, o) {
@@ -56,6 +73,14 @@ export default{
     }
   },
   methods: {
+    // 拷贝链接
+    copy: function (index) {
+      document.querySelector('#index-' + index).select()
+      if (document.execCommand('copy')) {
+        const selector = document.querySelector('#n-text-' + index)
+        selector.innerText = selector.innerText.toUpperCase()
+      }
+    }
   },
   filters: {
     position: function (index, total) {
@@ -65,5 +90,5 @@ export default{
 }
 </script>
 <style scoped>
-    /* .input-group{margin-top: 10px;} */
+/* .input-group{margin-top: 10px;} */
 </style>
