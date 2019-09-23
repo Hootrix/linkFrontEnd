@@ -57,7 +57,7 @@ import axios from 'axios'
 // }
 
 // 创建axios实例
-var instance = axios.create({ timeout: 1000 * 1 })// 1秒
+var instance = axios.create({ timeout: 1000 * 10 })// 10秒
 // 设置post请求头
 instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 /**
