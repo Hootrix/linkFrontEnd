@@ -138,6 +138,7 @@ export default {
         [/y\.(qq)\.com\/.*\/mv\/.*\/([a-zA-Z0-9]+)\.html/, '.mp4'],
         [/y\.(qq)\.com\/.*\/([a-zA-Z0-9]+)\.html/, '.mp3'],
         [/(?:music|y)\.(taihe|baidu)\.com\/song\/(\d+)/, '.mp3'],
+        [/music\.(163)\.com.*mv\?id=(\d+)/, '.mp4'],
         [/music\.(163)\.com.*\?id=(\d+)/, '.mp3'],
         [/(ximalaya)\.com\/qinggan\/\d+\/(\d+)/, '.mp3'],
         [/(vdisk)\.weibo\.com\/s\/(\w+)/, ''],
