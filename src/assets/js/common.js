@@ -85,7 +85,7 @@ export default {
        */
       try {
         let response = await this.$axios
-        .get(SERVERHOST + '/url', {
+        .get(SERVERHOST + '/url/', {
           params: { url: url }
         })
         response.data.data.forEach(function (item, index) {
