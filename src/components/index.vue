@@ -17,7 +17,7 @@
             </li>
           </slide-up-down>          
         </ul>
-        <a v-on:click="slideudClick" style="text-decoration: inherit;" v-bind:title="slideudStatusTitle" href="javascript:void(0)"> <div class="alert"><i style="margin-left:50%;" class="icon-chevron-down"></i></div> </a>
+        <a v-on:click="slideudClick" style="text-decoration: inherit;" v-bind:title="slideudStatusTitle" href="javascript:void(0)"> <div class="alert"><i style="margin-left:50%;" v-bind:class="[!defaultSlideudStatus?'icon-chevron-down':'icon-chevron-up']"></i></div> </a>
       </div>
 
     <input-url ref="input-url-el" v-bind:inputTitle="[versionInfo['APP_INPUT_CONTENT_TITLE']]" v-bind:isLoading="[isLoading]"  v-bind:url="[inputUrl]" v-on:submitInputUrl="submit" ></input-url>
@@ -44,7 +44,7 @@ export default {
       isLoading: false,
       result: [], //  结果集
       insertCount: 0, // 新增加的数量
-      defaultSlideudStatus: false // 是否显示对于的url 例子
+      defaultSlideudStatus: false // 是否显示多余的url 例子
     }
   },
   mounted: function () {
