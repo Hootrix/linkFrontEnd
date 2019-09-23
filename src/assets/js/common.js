@@ -5,6 +5,7 @@
 export default {
   install: function (Vue, options) {
     const SERVERHOST = 'https://link.hhtjim.com' //  请求服务器的地址 document.location.origin
+    // const SERVERHOST = 'http://link' //  请求服务器的地址 document.location.origin
 
     //  全局真实提交url的操作
     Vue.prototype.submitAction = async function (urlData) {
@@ -59,19 +60,21 @@ export default {
 
     //  getList接口获取url范例数据
     Vue.prototype.getList = function () {
-      this.$axios.get(SERVERHOST + '/vue/getList').then(response => {
+      this.$axios.get(SERVERHOST + '/api/getList').then(response => {
         // console.info(response.data)
         this.lists = response.data
         this.lists.forEach(function (i) {
           i['link'] = i['link'].split('\n') //  以换行符分割范例中的url用以展示
         })
+        window.localStorage['url_list'] = JSON.stringify(this.lists) // 缓存。用于index.vue中判断版本号新旧来获取缓存
       })
     }
 
     //  getVersion接口获取Web App版本信息数据
     Vue.prototype.getVersion = function () {
-      this.$axios.get(SERVERHOST + '/vue/getVersion').then(response => {
+      this.$axios.get(SERVERHOST + '/api/getVersion').then(response => {
         this.versionInfo = response.data
+        window.localStorage['version'] = this.versionInfo.APP_VERSION // 保存版本号
         this.$emit('appTitleUpdate', this.versionInfo)
       })
     }
