@@ -142,7 +142,7 @@ export default {
         [/music\.(163)\.com.*\?id=(\d+)/, '.mp3'],
         [/(ximalaya)\.com\/qinggan\/\d+\/(\d+)/, '.mp3'],
         [/(vdisk)\.weibo\.com\/s\/(\w+)/, ''],
-        [/(aimusic)?imusic\.cn\/#ring\/order\/(\d+)/, '.mp3'], // (aimusic)? 只是为了让正则捕获到组。没有任何实际意义
+        [/(imusic)\.cn\/#ring\/order\/(\d+)/, '.mp3'],
         [/v\.(yinyuetai)\.com\/video\/(\d+)/, '.mp4'],
         [/(1ting)\.com\/player\/(\w{2})\/player_(\d+)\.html/, '.mp3'],
         [/(kuwo)\.cn\/(?:play_detail|yinyue)\/(\d+)/, '.mp3'],
@@ -165,6 +165,8 @@ export default {
           let $R1 = RegExp.$1.replace('taihe', 'baidu')
           $R1 = $R1.replace('1ting', 'yt')
           $R1 = $R1.replace('yinyuetai', 'yyt')
+          $R1 = $R1.replace('kuwo', 'kw')
+          $R1 = $R1.replace('imusic', 'aimusic')
           // console.log(RegExp.length)
           let urlPath = `${$R1}`
 
