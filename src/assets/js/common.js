@@ -162,7 +162,11 @@ export default {
         let ext = regxs[i] instanceof RegExp ? '' : regxs[i][1]
         if (regx.test(url)) {
           // 替换名称
-          let $R1 = RegExp.$1.replace('taihe', 'baidu')
+          let $R1 = RegExp.$1
+          $R1 = $R1.replace('taihe', 'baidu')
+          if (url.indexOf('y.baidu.com') > -1 || url.indexOf('y.taihe.com') > -1) { // 音乐人
+            $R1 += '/yyr'
+          }
           $R1 = $R1.replace('1ting', 'yt')
           $R1 = $R1.replace('yinyuetai', 'yyt')
           $R1 = $R1.replace('kuwo', 'kw')
@@ -178,6 +182,7 @@ export default {
             urlPath = urlPath + `/${val}`
             n++
           }
+          // console.log(urlPath)
           const result = [`${SERVERHOST}/${urlPath}${ext}`]
           return result
         }
