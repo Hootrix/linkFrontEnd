@@ -164,6 +164,7 @@ export default {
           // 替换名称
           let $R1 = RegExp.$1.replace('taihe', 'baidu')
           $R1 = $R1.replace('1ting', 'yt')
+          $R1 = $R1.replace('yinyuetai', 'yyt')
           // console.log(RegExp.length)
           let urlPath = `${$R1}`
 
