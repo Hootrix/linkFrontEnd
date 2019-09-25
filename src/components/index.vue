@@ -113,7 +113,7 @@ export default {
       }
     },
     versionInfo: function (n, o) {
-      if (this.oldVersion === 0 || parseFloat(n.APP_VERSION) > this.oldVersion) {
+      if (this.oldVersion === 0 || parseFloat(n.APP_VERSION) !== this.oldVersion) { // 修改为不同版本就更新数据缓存
         // 如果版本号不存在或者不是最新版本则获取url列表
         this.getList()
       }
