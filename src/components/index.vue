@@ -82,7 +82,7 @@ export default {
 //  全局回车按键监听 提交操作
   created: function () {
     if (window.localStorage['version']) {
-      this.oldVersion = window.localStorage['version']
+      this.oldVersion = parseFloat(window.localStorage['version'])
     }
     const $this = this
     document.addEventListener('keyup', function (ev) {
