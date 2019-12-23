@@ -137,7 +137,7 @@ export default {
         [/(xiami)\.com\/song\/([a-zA-Z0-9]+)/, '.mp3'],
         [/y\.(qq)\.com\/.*\/mv\/.*\/([a-zA-Z0-9]+)\.html/, '.mp4'],
         [/y\.(qq)\.com\/.*\/([a-zA-Z0-9]+)\.html/, '.mp3'],
-        [/(?:music|y)\.(taihe|baidu)\.com\/song\/(\d+)/, '.mp3'],
+        [/(?:(?:music|y|www)\.)?(taihe|baidu)\.com\/song\/(\d+)/, '.mp3'],
         [/music\.(163)\.com.*mv\?id=(\d+)/, '.mp4'],
         [/music\.(163)\.com.*\?id=(\d+)/, '.mp3'],
         [/(ximalaya)\.com\/qinggan\/\d+\/(\d+)/, '.mp3'],
