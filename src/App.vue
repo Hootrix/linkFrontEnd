@@ -42,7 +42,7 @@ export default {
 
 /* google adsense */
 .ads1 { display:block;margin:auto;width: 720px; height: 90px; }
-  @media (max-width: 400px) { .ads1 { display: none; } }
+  @media (max-width: 400px) { .ads1 { width: 99%; height: 40px; padding: 1rem 0px } }
   @media (min-width:500px) { .ads1 { width: 468px; height: 60px; } }
   @media (min-width:800px) { .ads1 { width: 728px; height: 90px; } }
 </style>
