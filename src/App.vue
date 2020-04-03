@@ -45,4 +45,14 @@ export default {
   @media (max-width: 400px) { .ads1 { width: 99%; height: 40px; padding: 1rem 0px } }
   @media (min-width:500px) { .ads1 { width: 468px; height: 60px; } }
   @media (min-width:800px) { .ads1 { width: 728px; height: 90px; } }
+
+/* 祝好 */
+html {
+  -webkit-filter: grayscale(100%); 
+  -moz-filter: grayscale(100%); 
+  -ms-filter: grayscale(100%); 
+  -o-filter: grayscale(100%); 
+  filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);  
+  _filter:none; 
+  } 
 </style>
