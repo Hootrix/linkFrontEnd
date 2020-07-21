@@ -146,6 +146,7 @@ export default {
         [/v\.(yinyuetai)\.com\/video\/(\d+)/, '.mp4'],
         [/(1ting)\.com\/player\/(\w{2})\/player_(\d+)\.html/, '.mp3'],
         [/(kuwo)\.cn\/(?:play_detail|yinyue)\/(\d+)/, '.mp3'],
+        [/(streamja)\.com\/(\w+)/, ''],
 
         // todo
         // [/music\.(migu)\.cn.*\/song\/([a-zA-Z0-9]+)/, '.mp3']
