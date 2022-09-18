@@ -3,26 +3,26 @@
       <div class="list">
         <ul>
           <li v-for="item in lists.slice(0,3)">
-            <i v-bind:title="[item.desc]" v-bind:class="['fa',item.icon?item.icon:'fa-star-o']" ></i>{{item.title}}：
+            <i :title="[item.desc]" :class="['fa',item.icon?item.icon:'fa-star-o']" ></i>{{item.title}}：
               <template v-for="(i,key) in item.link" >
                 {{key>0?' | ':''}}<a href="javascript:void(0);" v-on:click="writeInputFunc(i)" >{{i.trim()}}</a>
               </template>
           </li>
-          <slide-up-down v-bind:active="defaultSlideudStatus" :duration="300">
+          <slide-up-down :active="defaultSlideudStatus" :duration="300">
             <li v-for="item in lists.slice(3)">
-              <i v-bind:title="[item.desc]" v-bind:class="['fa',item.icon?item.icon:'fa-star-o']" ></i>{{item.title}}：
+              <i :title="[item.desc]" :class="['fa',item.icon?item.icon:'fa-star-o']" ></i>{{item.title}}：
                 <template v-for="(i,key) in item.link" >
                   {{key>0?' | ':''}}<a href="javascript:void(0);" v-on:click="writeInputFunc(i)" >{{i.trim()}}</a>
                 </template>
             </li>
           </slide-up-down>          
         </ul>
-        <a v-on:click="slideudClick" style="text-decoration: inherit;" v-bind:title="slideudStatusTitle" href="javascript:void(0)"> <div class="alert"><i style="margin-left:50%;" v-bind:class="[!defaultSlideudStatus?'icon-chevron-down':'icon-chevron-up']"></i></div> </a>
+        <a v-on:click="slideudClick" style="text-decoration: inherit;" :title="slideudStatusTitle" href="javascript:void(0)"> <div class="alert"><i style="margin-left:50%;" :class="[!defaultSlideudStatus?'icon-chevron-down':'icon-chevron-up']"></i></div> </a>
       </div>
 
-    <input-url ref="input-url-el" v-bind:inputTitle="[versionInfo['APP_INPUT_CONTENT_TITLE']]" v-bind:isLoading="[isLoading]"  v-bind:url="[inputUrl]" v-on:submitInputUrl="submit" ></input-url>
-    <component v-if="showStatusBar" v-bind:is="currentStatusBarView"  v-bind:total="result.length"  v-bind:loadCount="insertCount" v-on:clearList="clear"  keep-alive></component>
-    <result-list v-bind:loadNum="insertCount"  v-bind:result="result"></result-list>
+    <input-url ref="input-url-el" :inputTitle="[versionInfo['APP_INPUT_CONTENT_TITLE']]" :isLoading="[isLoading]"  :url="[inputUrl]" v-on:submitInputUrl="submit" ></input-url>
+    <component v-if="showStatusBar" :is="currentStatusBarView"  :total="result.length"  :loadCount="insertCount" v-on:clearList="clear"  keep-alive></component>
+    <result-list :loadNum="insertCount"  :result="result"></result-list>
     </div>
 </template>
 
@@ -59,6 +59,7 @@ export default {
     'slide-up-down': SlideUpDown
   },
   methods: {
+
     writeInputFunc: function (url) {
       this.inputUrl = url.trim()
     },
@@ -81,6 +82,8 @@ export default {
 
 //  全局回车按键监听 提交操作
   created: function () {
+
+
     if (window.localStorage['version']) {
       this.oldVersion = parseFloat(window.localStorage['version'])
     }
@@ -98,9 +101,10 @@ export default {
     }
   },
   watch: {
+
     result: function (n, o) {
-//      console.log(n)
-      this.insertCount = n.length - o.length
+    //  console.log(n)
+      this.insertCount = (n.length - o.length)
     },
     isLoading: function (n, o) {
       if (n !== o) {
@@ -112,7 +116,8 @@ export default {
         }
       }
     },
-    versionInfo: function (n, o) {
+    versionInfo: function (n) {
+      // console.log(o)
       if (this.oldVersion === 0 || parseFloat(n.APP_VERSION) !== this.oldVersion) { // 修改为不同版本就更新数据缓存
         // 如果版本号不存在或者不是最新版本则获取url列表
         this.getList()

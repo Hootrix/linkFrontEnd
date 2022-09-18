@@ -1,11 +1,6 @@
 # FIRST
-大概2017年5月开始逐渐尝试Vue.js重构
 
-拖延症。。。ing
-
-190923基本完工
-
-![无标题.jpg](https://i.loli.net/2019/09/23/xl4wjFXLp7vHcDB.png)
+![link](https://i.loli.net/2019/09/23/xl4wjFXLp7vHcDB.png)
 
 # DEMO
 
@@ -15,32 +10,37 @@ http://link.hhtjim.com
 > A Vue.js project
 
 ## Build Setup
-
-``` bash
-# install dependencies
+```
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## docker
+
+```
+
+# develop
+
+$ docker run  -it --rm -p 8080:8080 -v $(pwd)/linkFrontEnd/:/data/ registry.cn-chengdu.aliyuncs.com/hhtjim/link-front-end sh -c 'cd /data;npm install --save-dev;npm run serve'
+
+
+# build
+
+$ docker run  -it --rm -v $(pwd)/linkFrontEnd/:/data/ registry.cn-chengdu.aliyuncs.com/hhtjim/link-front-end sh -c 'cd /data;npm install --save-dev;npm run build'
+```
 
 ## License
 

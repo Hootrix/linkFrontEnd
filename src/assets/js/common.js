@@ -4,6 +4,7 @@
  */
 export default {
   install: function (Vue, options) {
+    // options;
     const SERVERHOST = 'https://link.hhtjim.com' //  请求服务器的地址 document.location.origin
     // const SERVERHOST = 'http://link' //  请求服务器的地址 document.location.origin
 
@@ -138,8 +139,8 @@ export default {
         [/y\.(qq)\.com\/.*\/mv\/.*\/([a-zA-Z0-9]+)\.html/, '.mp4'],
         [/y\.(qq)\.com\/.*\/([a-zA-Z0-9]+)\.html/, '.mp3'],
         [/(?:(?:music|y|www)\.)?(taihe|baidu)\.com\/song\/(\d+)/, '.mp3'],
-        [/music\.(163)\.com.*mv\?id=(\d+)/, '.mp4'],
-        [/music\.(163)\.com.*\?id=(\d+)/, '.mp3'],
+        [/music\.(163)\.com.*mv.*(?:\?|&)id=(\d+)/g, '.mp4'],
+        [/music\.(163)\.com.*(?:\?|&)id=(\d+)/g, '.mp3'],
         [/(ximalaya)\.com\/qinggan\/\d+\/(\d+)/, '.mp3'],
         [/(vdisk)\.weibo\.com\/s\/(\w+)/, ''],
         [/(imusic)\.cn\/#ring\/order\/(\d+)/, '.mp3'],
