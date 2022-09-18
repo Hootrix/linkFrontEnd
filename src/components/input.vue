@@ -1,8 +1,8 @@
 <template>
     <div class="input-group">
-        <input v-model="localUrl" ref="currentInputVal"  type="text" class="form-control input-lg" style="font-weight:bold;" placeholder="" v-bind:title="[inputTitle]" size="56"  onmouseover="this.select()" />
+        <input v-model="localUrl" ref="currentInputVal"  type="text" class="form-control input-lg" style="font-weight:bold;" placeholder="" :title="[inputTitle]" size="56"  onmouseover="this.select()" />
         <span class="input-group-btn">
-            <input  v-on:click="submit" type="submit"  value="提  交"  v-bind:class="['btn btn-primary btn-lg',localIsLoading===true?'disabled':'']"/>
+            <input  v-on:click="submit" type="submit"  value="提  交"  :class="['btn btn-primary btn-lg',localIsLoading===true?'disabled':'']"/>
         </span>
     </div>
 </template>
