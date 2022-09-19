@@ -11,7 +11,7 @@ export default {
   data: function () {
     return {
       title: '',
-      version: window.localStorage['version'] ? 'V' + window.localStorage['version'] : 'V######'
+      version: window.localStorage['version'] ? 'V' + window.localStorage['version'] : 'V#####'
     }
   },
   methods: {
