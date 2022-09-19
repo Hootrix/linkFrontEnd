@@ -32,14 +32,17 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ```
 
+$ cd ./linkFrontEnd
+
+
 # develop
 
-$ docker run  -it --rm -p 8080:8080 -v $(pwd)/linkFrontEnd/:/data/ registry.cn-chengdu.aliyuncs.com/hhtjim/link-front-end sh -c 'cd /data;npm install --save-dev;npm run serve'
+$ docker run  -it --rm -p 8080:8080 -v $(pwd)/:/data/ registry.cn-chengdu.aliyuncs.com/hhtjim/link-front-end sh -c 'cd /data;npm install --save-dev;npm run serve'
 
 
 # build
 
-$ docker run  -it --rm -v $(pwd)/linkFrontEnd/:/data/ registry.cn-chengdu.aliyuncs.com/hhtjim/link-front-end sh -c 'cd /data;npm install --save-dev;npm run build'
+$ docker run  -it --rm -v $(pwd)/:/data/ registry.cn-chengdu.aliyuncs.com/hhtjim/link-front-end sh -c 'cd /data;npm install --save-dev;npm run build'
 ```
 
 ## License
